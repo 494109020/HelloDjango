@@ -1,0 +1,10 @@
+{% extends 'hello/base.html' %}
+{% block content %}
+    <p><a href="{% url 'hello:topic' topic.id %}">{{ topic }}</a></p>
+    <p>Edit entry:</p>
+    <form action="{% url 'hello:edit_entry' entry.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">edit confirm</button>
+    </form>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends "hello/base.html" %}
+
+{% block content %}
+    <p>Topics</p>
+    <ul>
+        {% for topic in topics %}
+            <li>
+                <a href="{% url 'hello:topic' topic.id %}">{{ topic }}</a>
+            </li>
+        {% empty %}
+            <li>暂时没有任何主题</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'hello:new_topic' %}">add a new topic </a>
+{% endblock content %}

@@ -1,0 +1,6 @@
+venv/
+resource/
+/db.sqlite3
+
+
+

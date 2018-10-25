@@ -1,0 +1,10 @@
+{% extends 'hello/base.html' %}
+{% block content %}
+    <p><a href="{% url 'hello:topic' topic.id %}">{{ topic }}</a></p>
+    <p>add a new entry:</p>
+    <form action="{% url 'hello:new_entry' topic.id %}" method="post">
+        {% csrf_token %}{# 防止跨站请求伪造,这东西是一个token,由框架自动添加并验证,所有的表单都要加这个 #}
+        {{ form.as_p }}{# as_p 就是转换成<p>标签，还有as_ul，as_table #}
+        <button name="submit">add entry</button>
+    </form>
+{% endblock content %}
